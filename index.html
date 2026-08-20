@@ -121,13 +121,34 @@ footer{background:#111;color:#ddd;text-align:center;padding:25px;font-size:13px}
 
 <script>
 function book(){
- const n=document.getElementById('name').value.trim(), m=document.getElementById('mobile').value.trim();
- const s=document.getElementById('service').value, t=document.getElementById('type').value;
- const d=document.getElementById('date').value, tm=document.getElementById('time').value;
- const msg=document.getElementById('message').value.trim();
- if(!n||!m||!d||!tm){alert('Please fill Name, Mobile, Date and Time.');return;}
- const text=`Hello Glow & Shine, I want to book an appointment.%0A%0AName: ${encodeURIComponent(n)}%0AMobile: ${encodeURIComponent(m)}%0AService: ${encodeURIComponent(s)}%0ABooking Type: ${encodeURIComponent(t)}%0ADate: ${encodeURIComponent(d)}%0ATime: ${encodeURIComponent(tm)}%0ARequest: ${encodeURIComponent(msg||'None')}`;
- window.open('https://wa.me/916307551581?text='+text,'_blank');
+  const n = document.getElementById('name').value.trim();
+  const m = document.getElementById('mobile').value.trim();
+  const s = document.getElementById('service').value;
+  const t = document.getElementById('type').value;
+  const d = document.getElementById('date').value;
+  const tm = document.getElementById('time').value;
+  const msg = document.getElementById('message').value.trim();
+
+  if(!n || !m || !d || !tm){
+    alert('Please fill Name, Mobile, Date and Time.');
+    return;
+  }
+
+  const text =
+  "Hello Glow & Shine Beauty Parlour,\n\n" +
+  "I want to book an appointment.\n\n" +
+  "Name: " + n + "\n" +
+  "Mobile: " + m + "\n" +
+  "Service: " + s + "\n" +
+  "Booking Type: " + t + "\n" +
+  "Date: " + d + "\n" +
+  "Time: " + tm + "\n" +
+  "Request: " + (msg || "None");
+
+  const whatsappURL =
+    'https://wa.me/916307551581?text=' + encodeURIComponent(text);
+
+  window.open(whatsappURL, '_blank');
 }
 </script>
 </body>
